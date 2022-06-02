@@ -12,6 +12,11 @@ body {
     box-sizing: border-box
 }
 
-.node + .node {
-    margin-left: 4px;
+.track {
+    height: 4px;
+    border-radius: 0.25rem;
+}
+
+.track-0 {
+    background-color: #3b82f6;
 }
