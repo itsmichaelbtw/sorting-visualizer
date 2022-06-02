@@ -11,3 +11,7 @@ body {
     margin: 0;
     box-sizing: border-box
 }
+
+.node + .node {
+    margin-left: 4px;
+}
