@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer, useContext } from "react";
+import React, { createContext, useEffect, useReducer, useContext, createRef } from "react";
 
 import { DefaultAnimationSpeed, DefaultAlgorithm, DefaultView, InitialArraySize } from "utils/constants";
 import { generateArray, shuffleArray } from "utils/array";
@@ -10,14 +10,11 @@ const StoreState = {
     currentView: DefaultView,
     activeAlgorithm: DefaultAlgorithm,
     isSorting: false,
+    windowRef: null,
     dispatch: () => {}
 };
 
 const Reducer = (state, action) => {
-    if (state.isSorting) {
-        return state;
-    };
-
     if (action.type === "reset") {
         return StoreState;
     };
@@ -64,6 +61,7 @@ export const StoreProvider = (props) => {
         };
     }, []);
 
+    state.windowRef = createRef();
     state.dispatch = dispatch;
 
     return (
