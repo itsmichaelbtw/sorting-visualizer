@@ -3,11 +3,9 @@ import { MinNodeHeight, MaxNodeHeight, InitialArraySize } from "./constants";
 const Node = {
     height: null,
     value: null,
-    label: null,
-    origIndex: null,
-    index: null,
-    margin: null
-};
+    marginLeft: null,
+    backgroundColor: null,
+}
 
 export const createRandomIntensity = () => {
     const min = MinNodeHeight;
@@ -22,26 +20,14 @@ export const shuffleArray = (array) => {
 
 export const calculateMarginalGap = (arraySize) => {
     if (arraySize < 50) {
-        return "8px"
+        return "8px";
     };
-
+    
     if (arraySize < 100) {
-        return "6px"
+        return "6px";
     };
 
-    if (arraySize < 200) {
-        return "4px"
-    };
-
-    if (arraySize < 300) {
-        return "2px"
-    };
-
-    if (arraySize < 400) {
-        return "1px"
-    };
-
-    return "0px";
+    return "2px";
 };
 
 export const generateArray = (arraySize = InitialArraySize) => {
@@ -49,16 +35,13 @@ export const generateArray = (arraySize = InitialArraySize) => {
     const marginalGap = calculateMarginalGap(arraySize);
 
     for (let i = 0; i < arraySize; i++) {
-        const node = Object.create(Node);
         const intensity = createRandomIntensity();
+        const node = Object.create(Node);
 
         node.height = `${intensity}%`;
         node.value = intensity;
-        node.label = `Node ${i}`;
-        node.origIndex = i;
-        node.index = i;
-        node.margin = marginalGap;
-        
+        node.marginLeft = marginalGap;
+
         array.push(node);
     };
 
