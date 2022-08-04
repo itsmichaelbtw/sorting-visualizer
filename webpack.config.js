@@ -15,7 +15,7 @@ module.exports = function (env) {
         optimization: {
             minimize: isEnvProduction,
             runtimeChunk: {
-                name: entryPoint => `runtime-${entryPoint.name}`
+                name: (entryPoint) => `runtime-${entryPoint.name}`
             }
         },
         resolve: {
@@ -39,9 +39,11 @@ module.exports = function (env) {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader
-                        }, {
+                        },
+                        {
                             loader: "css-loader"
-                        }, {
+                        },
+                        {
                             loader: "postcss-loader"
                         }
                     ]
@@ -49,23 +51,29 @@ module.exports = function (env) {
             ]
         },
         plugins: [
-            new HtmlWebpackPlugin(Object.assign({}, {
-                template: "./src/index.html",
-            }, isEnvProduction && {
-                minify: {
-                    removeComments: true,
-                    collapseWhitespace: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeStyleLinkTypeAttributes: true,
-                    keepClosingSlash: true,
-                    minifyJS: true,
-                    minifyCSS: true,
-                    minifyURLs: true
-                }
-            })),
-            new MiniCssExtractPlugin(),
+            new HtmlWebpackPlugin(
+                Object.assign(
+                    {},
+                    {
+                        template: "./src/index.html"
+                    },
+                    isEnvProduction && {
+                        minify: {
+                            removeComments: true,
+                            collapseWhitespace: true,
+                            removeRedundantAttributes: true,
+                            useShortDoctype: true,
+                            removeEmptyAttributes: true,
+                            removeStyleLinkTypeAttributes: true,
+                            keepClosingSlash: true,
+                            minifyJS: true,
+                            minifyCSS: true,
+                            minifyURLs: true
+                        }
+                    }
+                )
+            ),
+            new MiniCssExtractPlugin()
         ].filter(Boolean),
         devServer: {
             port: 5000,

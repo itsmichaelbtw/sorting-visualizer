@@ -15,7 +15,7 @@ export default function Timer({ onPause, onStart, children }) {
             timer = setInterval(() => {
                 setDelta(new Date().getTime() - now);
             }, TimerFrameRate);
-        };
+        }
 
         return () => {
             clearInterval(timer);
@@ -29,7 +29,7 @@ export default function Timer({ onPause, onStart, children }) {
             onStart(() => {
                 setRun(false);
             });
-        };
+        }
 
         setRun((v) => !v);
     };
@@ -39,7 +39,9 @@ export default function Timer({ onPause, onStart, children }) {
         const s = Math.floor(time / 1000) % 60;
         const m = Math.floor(time / 60000);
 
-        return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}:${ms.toString().padStart(3, "0")}`;
+        return `${m.toString().padStart(2, "0")}:${s
+            .toString()
+            .padStart(2, "0")}:${ms.toString().padStart(3, "0")}`;
     };
 
     return (
@@ -52,4 +54,4 @@ export default function Timer({ onPause, onStart, children }) {
             </div>
         </div>
     );
-};
+}

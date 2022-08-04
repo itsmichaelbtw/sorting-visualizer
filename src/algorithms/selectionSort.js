@@ -11,15 +11,15 @@ export const selectionSort = (array, callback) => {
         for (let j = i + 1; j < length; j++) {
             if (array[j].value < array[min].value) {
                 min = j;
-            };
-        };
+            }
+        }
 
         if (min !== i) {
             swap(array, i, min);
             currArray = [...array];
             callback(iteration++, currArray);
-        };
-    };
+        }
+    }
 
     return iteration;
 };

@@ -4,8 +4,8 @@ const Node = {
     height: null,
     value: null,
     marginLeft: null,
-    backgroundColor: null,
-}
+    backgroundColor: null
+};
 
 export const createRandomIntensity = () => {
     const min = MinNodeHeight;
@@ -15,17 +15,17 @@ export const createRandomIntensity = () => {
 };
 
 export const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5);   
+    return array.sort(() => Math.random() - 0.5);
 };
 
 export const calculateMarginalGap = (arraySize) => {
     if (arraySize < 50) {
         return "8px";
-    };
-    
+    }
+
     if (arraySize < 100) {
         return "6px";
-    };
+    }
 
     return "2px";
 };
@@ -43,7 +43,7 @@ export const generateArray = (arraySize = InitialArraySize) => {
         node.marginLeft = marginalGap;
 
         array.push(node);
-    };
+    }
 
     return array;
 };

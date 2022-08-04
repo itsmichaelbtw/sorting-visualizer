@@ -13,8 +13,8 @@ export const insertionSort = (array, callback) => {
             currArray = [...array];
             callback(iteration++, currArray);
             j--;
-        };
-    };
+        }
+    }
 
     return iteration;
 };

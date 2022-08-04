@@ -1,4 +1,13 @@
-import { bubbleSort, insertionSort, selectionSort } from "algorithms";
+import {
+    bubbleSort,
+    insertionSort,
+    selectionSort,
+    mergeSort
+} from "algorithms";
+
+export const sleep = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 export const swap = (array, i, j) => {
     const temp = array[i];
@@ -14,9 +23,11 @@ export const getAlgorithm = (algorithm) => {
             return insertionSort;
         case "SelectionSort":
             return selectionSort;
+        case "MergeSort":
+            return mergeSort;
         default:
             return bubbleSort;
-    };
+    }
 };
 
 export const getAnimationSpeed = (speed) => {
@@ -27,5 +38,5 @@ export const getAnimationSpeed = (speed) => {
             return 10;
         case "Fast":
             return 1;
-    };
-}; 
+    }
+};

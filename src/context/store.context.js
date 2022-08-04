@@ -1,6 +1,17 @@
-import React, { createContext, useEffect, useReducer, useContext, createRef } from "react";
+import React, {
+    createContext,
+    useEffect,
+    useReducer,
+    useContext,
+    createRef
+} from "react";
 
-import { DefaultAnimationSpeed, DefaultAlgorithm, DefaultView, InitialArraySize } from "utils/constants";
+import {
+    DefaultAnimationSpeed,
+    DefaultAlgorithm,
+    DefaultView,
+    InitialArraySize
+} from "utils/constants";
 import { generateArray, shuffleArray } from "utils/array";
 
 const StoreState = {
@@ -17,7 +28,7 @@ const StoreState = {
 const Reducer = (state, action) => {
     if (action.type === "reset") {
         return StoreState;
-    };
+    }
 
     switch (action.type) {
         case "GENERATE": {
@@ -25,14 +36,14 @@ const Reducer = (state, action) => {
                 ...state,
                 currentArray: generateArray(state.arraySize)
             };
-        };
+        }
 
         case "SHUFFLE": {
             return {
                 ...state,
                 currentArray: shuffleArray(state.currentArray)
             };
-        };
+        }
 
         case "RESIZE_ARRAY": {
             return {
@@ -40,8 +51,8 @@ const Reducer = (state, action) => {
                 arraySize: action.value,
                 currentArray: generateArray(action.value)
             };
-        };
-    };
+        }
+    }
 
     const result = { ...state };
     result[action.type] = action.value;
@@ -55,7 +66,7 @@ export const StoreProvider = (props) => {
 
     useEffect(() => {
         dispatch({ type: "GENERATE" });
-        
+
         return () => {
             dispatch({ type: "reset" });
         };

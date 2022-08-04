@@ -11,9 +11,9 @@ export const bubbleSort = (array, callback, animate) => {
                 swap(array, j, j + 1);
                 currArray = [...array];
                 callback(iteration++, currArray);
-            };
-        };
-    };
+            }
+        }
+    }
 
     return iteration;
 };

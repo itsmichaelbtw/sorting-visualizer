@@ -8,7 +8,19 @@ export const DefaultAnimationSpeed = "Normal";
 export const DefaultAlgorithm = "BubbleSort";
 export const DefaultView = "Mirror";
 
-export const ViewModes = ["BarChart", "Box", "Mirror", "Compare"];
+// export const ViewModes = ["BarChart", "Box", "Mirror", "Compare"];
+export const ViewModes = ["BarChart", "Mirror"];
 export const AnimationSpeeds = ["Slow", "Normal", "Fast"];
-export const Algorithms = ["BubbleSort", "SelectionSort", "InsertionSort", "MergeSort", "QuickSort", "HeapSort", "CountingSort", "RadixSort", "BucketSort", "ShellSort"];
-
+// export const Algorithms = [
+//     "BubbleSort",
+//     "SelectionSort",
+//     "InsertionSort",
+//     "MergeSort",
+//     "QuickSort",
+//     "HeapSort",
+//     "CountingSort",
+//     "RadixSort",
+//     "BucketSort",
+//     "ShellSort"
+// ];
+export const Algorithms = ["BubbleSort", "SelectionSort", "InsertionSort"];
